@@ -1,4 +1,4 @@
-//Define CONSTANT variables to store pins connected to Button and LED
+//Define CONSTANT variables to store pins connected to Motion Sensor and LED
 const uint8_t MOTION_PIN = 2;
 const uint8_t LED_PIN = 13;
 
@@ -8,7 +8,7 @@ uint8_t ledState = LOW;
 //Initialize the program
 void setup()
 {
-  //Initialize the pushbutton pin as an input
+  //Initialize the Motion Sensor pin as an input
   pinMode(MOTION_PIN, INPUT);
   //Initialize the LED pin as an output
   pinMode(LED_PIN, OUTPUT);
@@ -18,7 +18,7 @@ void setup()
   Serial.begin(9600);
 }
 
-//Function to toggle the LED when the button is pressed
+//Function to toggle the LED when motion is detected
 void motionCheck()
 {
   //Toggle the LED
