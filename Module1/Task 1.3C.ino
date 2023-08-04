@@ -13,6 +13,7 @@ void setup()
 {
   //Initialize the Motion Sensor pin as an input
   pinMode(MOTION_PIN, INPUT);
+  pinMode(FORCE_SENSOR_PIN, INPUT);
   //Initialize the RGB LED pin as an output
   pinMode(LED_PIN_RED, OUTPUT);
   pinMode(LED_PIN_BLUE, OUTPUT);

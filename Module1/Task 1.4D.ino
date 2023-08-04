@@ -1,3 +1,5 @@
+#include "PinChangeInterrupt.h"
+
 //Define CONSTANT variables to store pins connected to Motion Sensor, Force Sensor and RGB LED
 const uint8_t FORCE_SENSOR_PIN = 3;
 const uint8_t MOTION_PIN = 2;
@@ -14,13 +16,12 @@ void setup()
   //Initialize the Motion Sensor pin as an input
   pinMode(MOTION_PIN, INPUT);
   pinMode(FORCE_SENSOR_PIN, INPUT);
-  //Initialize the RGB LED pin as an output
+  //Initialize the LED pin as an output
   pinMode(LED_PIN_RED, OUTPUT);
   pinMode(LED_PIN_BLUE, OUTPUT);
   pinMode(LED_PIN_GREEN, OUTPUT);
-  //Interupt to toggle the LED when motion is detected
+  //Interupt to toggle the LED
   attachInterrupt(digitalPinToInterrupt(MOTION_PIN), motionCheck, CHANGE);
-  //Interupt to toggle the LED when force is detected
   attachInterrupt(digitalPinToInterrupt(FORCE_SENSOR_PIN), forceCheck, CHANGE);
   //Initialize the Serial Monitor
   Serial.begin(9600);
@@ -29,7 +30,7 @@ void setup()
 //Function to toggle the LED when motion is detected
 void motionCheck()
 {
-  //Toggle the LED Green
+  //Toggle the LED
   analogWrite(LED_PIN_RED,   0);
   analogWrite(LED_PIN_GREEN, 255);
   analogWrite(LED_PIN_BLUE,  0);
@@ -40,7 +41,7 @@ void motionCheck()
 //Function to toggle the LED when force is detected
 void forceCheck()
 {
-  //Toggle the LED Red
+  //Toggle the LED
   analogWrite(LED_PIN_RED,   255);
   analogWrite(LED_PIN_GREEN, 0);
   analogWrite(LED_PIN_BLUE,  0);
